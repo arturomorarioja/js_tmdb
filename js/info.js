@@ -1,0 +1,3 @@
+'use strict';
+
+export const apiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZTUxMjhjODA3ZWE2Njk5ZTkyODc0Y2Y0NTAzYzQ5ZiIsInN1YiI6IjVmNjVjNGQ3MDhjZjg3MDAzOTQ1ZGVjZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.A0wcrG4nUQ8KeIa5uRhLuDM79eR-8fSAUpRbxvtSL6g';
