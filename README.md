@@ -13,8 +13,6 @@ It connects to The Movie Database API (https://developer.themoviedb.org/docs) an
 
 Create a file `js/info.js` with the following content:
 ```JS
-'use strict';
-
 export const apiKey = '<YOUR_API_KEY_FOR_THE_MOVIE_DATABASE>';
 ```
 
