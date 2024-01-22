@@ -1,5 +1,3 @@
-'use strict';
-
 import { apiKey } from './info.js';
 
 const baseUrl = 'https://api.themoviedb.org';
@@ -18,9 +16,15 @@ const queryFilms = (query) => {
             'Authorization': `Bearer ${apiKey}`
         }
     })
-    .then((response) => response.text())
+    .then((response) => { 
+        if (response.ok) {
+            return response.text();
+        } else {
+            console.log('Response error', `${response.status} - ${response.statusText}`);
+        }
+    })
     .then((data) => showFilms(JSON.parse(data)))
-    .catch((error) => console.log('error', error));
+    .catch((error) => console.log('Fetch error', error));
 };
 
 const showFilms = (films) => {

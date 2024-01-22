@@ -32,6 +32,8 @@ body > header, footer {
 }
 
 nav {
+    position: sticky;
+    top: 0;
     padding: 0.25rem 1rem;
     background-color: var(--colorBgTertiary);
     font-weight: bold;
