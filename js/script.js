@@ -5,6 +5,12 @@ const baseUrl = 'https://api.themoviedb.org';
 document.querySelectorAll('nav a').forEach((menuOption) => {
     menuOption.addEventListener('click', function() {
         queryFilms(this.id);
+
+        const selectedMenuOption = document.querySelector('nav a.selected');
+        if (selectedMenuOption !== null) {
+            selectedMenuOption.classList.remove('selected');
+        }
+        this.classList.add('selected');
     });
 });
 

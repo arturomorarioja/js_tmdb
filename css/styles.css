@@ -4,6 +4,7 @@
 :root {
     --colorMain: black;
     --colorSecondary: #321325;
+    --colorTertiary: lightgoldenrodyellow;
 
     --colorBgPrimary: floralwhite;
     --colorBgSecondary: #5F0F40;
@@ -47,6 +48,10 @@ nav a {
     color: var(--colorBgPrimary);
 }
 nav a:hover {
+    text-decoration: underline;
+}
+.selected {   
+    color: var(--colorTertiary);
     text-decoration: underline;
 }
 
