@@ -43,12 +43,17 @@ nav li {
     list-style-type: none;
     margin-bottom: 0.5rem;
 }
-nav a {
+nav button {
     text-decoration: none;
+    border: none;
     color: var(--colorBgPrimary);
+    background-color: var(--colorBgTertiary);
+    font-size: 1.1rem;
 }
-nav a:hover {
+nav button:hover {
     text-decoration: underline;
+    color: var(--colorTertiary);
+    cursor: pointer;
 }
 .selected {   
     color: var(--colorTertiary);
