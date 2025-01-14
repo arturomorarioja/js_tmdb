@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400&display=swap');
-
 :root {
     --colorMain: black;
     --colorSecondary: #321325;
@@ -17,19 +16,27 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: var(--fontMain);
+    > header, footer {
+        padding: 0.5rem 1rem;
+        color: var(--colorBgPrimary);
+        background-color: var(--colorSecondary);    
+    }
+}
+@media (min-width: 850px) {
+    body, footer {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 header, footer {
     font-family: var(--fontHeader);
-}
-body > header, footer {
-    padding: 0.5rem 1rem;
-    color: var(--colorBgPrimary);
-    background-color: var(--colorSecondary);    
 }
 
 nav {
@@ -38,22 +45,31 @@ nav {
     padding: 0.25rem 1rem;
     background-color: var(--colorBgTertiary);
     font-weight: bold;
-}
-nav li {
-    list-style-type: none;
-    margin-bottom: 0.5rem;
-}
-nav button {
-    text-decoration: none;
-    border: none;
-    color: var(--colorBgPrimary);
-    background-color: var(--colorBgTertiary);
-    font-size: 1.1rem;
-}
-nav button:hover {
-    text-decoration: underline;
-    color: var(--colorTertiary);
-    cursor: pointer;
+    li {
+        list-style-type: none;
+        margin-bottom: 0.5rem;
+    }
+    @media (min-width: 480px) {
+        ul {
+            display: flex;
+            gap: 2rem;
+        }    
+        li {
+            margin-bottom: 0;
+        }
+    }
+    button {
+        text-decoration: none;
+        border: none;
+        color: var(--colorBgPrimary);
+        background-color: var(--colorBgTertiary);
+        font-size: 1.1rem;
+        &:hover {
+            text-decoration: underline;
+            color: var(--colorTertiary);
+            cursor: pointer;
+        }
+    }
 }
 .selected {   
     color: var(--colorTertiary);
@@ -62,6 +78,9 @@ nav button:hover {
 
 main {
     margin: 1rem 1rem 3rem 1rem;
+    @media (min-width: 850px) {
+        margin: 1rem 0 3rem 0;
+    }
 }
 
 footer {
@@ -69,82 +88,62 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: center;
+    @media (min-width: 850px) {
+        width: 80%;
+    }
 }
 
-article.film {
-    border: solid thin var(--colorBgSecondary);
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-article.film p {
-    padding: 0.5rem;
-}
-article.film img {
-    margin-top: 0.25rem;
-    align-self: center;
-    max-width: 154px;
-    max-height: 231px;
-}
-
-article header {
-    padding: 0.25rem 1rem;
-    color: var(--colorBgPrimary);
-    background-color: var(--colorBgSecondary);
-    border-radius: 0.5rem 0.5rem 0 0;
+article {
+    &.film {
+        border: solid thin var(--colorBgSecondary);
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    &.film p {
+        padding: 0.5rem;
+    }
+    &.film img {
+        margin-top: 0.25rem;
+        align-self: center;
+        max-width: 154px;
+        max-height: 231px;
+        @media (min-width: 480px) {
+            align-self: flex-start;
+            margin-top: 0;
+            border-radius: 0 0 0 0.5rem;
+        }
+    }
+    
+    header {
+        padding: 0.25rem 1rem;
+        color: var(--colorBgPrimary);
+        background-color: var(--colorBgSecondary);
+        border-radius: 0.5rem 0.5rem 0 0;
+    }
 }
 
 .film-content {
     display: flex;
     flex-flow: column nowrap;
+    @media (min-width: 480px) {
+        flex-flow: row nowrap;
+    }
 }
 
 .film-info {
     font-size: 0.9rem;
     padding-bottom: 0 !important;
-}
-.film-info:last-of-type {
-    padding-bottom: 0.5rem !important;
-}
-.film-info::before {
-    font-weight: bold;
+    &:last-of-type {
+        padding-bottom: 0.5rem !important;
+    }
+    &::before {
+        font-weight: bold;
+    }
 }
 .date::before {
     content: 'Release date: ';
 }
 .original-title::before {
     content: 'Original title: ';
-}
-
-@media (min-width: 480px) {
-    nav ul {
-        display: flex;
-        gap: 2rem;
-    }    
-    nav li {
-        margin-bottom: 0;
-    }
-
-    article.film img {
-        align-self: flex-start;
-        margin-top: 0;
-        border-radius: 0 0 0 0.5rem;
-    }
-    .film-content {
-        flex-flow: row nowrap;
-    }
-}
-
-@media (min-width: 850px) {
-    body, footer {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    main {
-        margin: 1rem 0 3rem 0;
-    }
-    footer {
-        width: calc(80% - 2rem);
-    }
 }

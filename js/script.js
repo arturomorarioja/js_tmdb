@@ -26,11 +26,11 @@ const queryFilms = (query) => {
         if (response.ok) {
             return response.text();
         } else {
-            console.log('Response error', `${response.status} - ${response.statusText}`);
+            console.error('Response error', `${response.status} - ${response.statusText}`);
         }
     })
     .then((data) => showFilms(JSON.parse(data)))
-    .catch((error) => console.log('Fetch error', error));
+    .catch((error) => console.error('Fetch error', error));
 };
 
 const showFilms = (films) => {
@@ -39,21 +39,15 @@ const showFilms = (films) => {
 
     const filmList = document.createElement('section');
     films.results.forEach((film) => {
-        const filmCard = document.createElement('article');
-        filmCard.classList.add('film');
-        filmCard.innerHTML = `
-            <header>
-                <h2>${film.title}</h2>
-            </header>
-            <div class="film-content">
-                <img src="https://image.tmdb.org/t/p/w154/${film.poster_path}">
-                <div>
-                    <p>${film.overview}</p>
-                    <p class="film-info original-title">${film.original_title}</p>
-                    <p class="film-info date">${film.release_date}</p>
-                </div>
-            </div>
-        `;
+        const filmCard = document.querySelector('#filmCard').content.cloneNode(true);
+
+        filmCard.querySelector('h2').innerText = film.title;
+        filmCard.querySelector('img').setAttribute('src', `https://image.tmdb.org/t/p/w154/${film.poster_path}`);
+        filmCard.querySelector('img').setAttribute('alt', `Poster for ${film.title}`);
+        filmCard.querySelector('.film-overview').innerText = film.overview;
+        filmCard.querySelector('.original-title').innerText = film.original_title;
+        filmCard.querySelector('.date').innerText = film.release_date;
+
         filmList.append(filmCard);
     });
     main.append(filmList);
