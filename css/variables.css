@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400&display=swap');
+:root {
+    --colorMain: black;
+    --colorSecondary: #321325;
+    --colorTertiary: lightgoldenrodyellow;
+
+    --colorBgPrimary: floralwhite;
+    --colorBgSecondary: #5F0F40;
+    --colorBgTertiary: #9A031E;
+
+    --colorError: red;
+
+    --fontMain: Inter, sans-serif;
+    --fontHeader: Merriweather, serif;
+
+    --coverMaxWidth: 154px;
+    --coverMaxHeight: 231px;
+}

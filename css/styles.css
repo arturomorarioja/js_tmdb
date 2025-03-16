@@ -1,17 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400&display=swap');
-:root {
-    --colorMain: black;
-    --colorSecondary: #321325;
-    --colorTertiary: lightgoldenrodyellow;
-
-    --colorBgPrimary: floralwhite;
-    --colorBgSecondary: #5F0F40;
-    --colorBgTertiary: #9A031E;
-
-    --fontMain: Inter, sans-serif;
-    --fontHeader: Merriweather, serif;
-}
+@import 'variables.css';
 
 * {
     margin: 0;
@@ -106,8 +93,8 @@ article {
     &.film img {
         margin-top: 0.25rem;
         align-self: center;
-        max-width: 154px;
-        max-height: 231px;
+        max-width: var(--coverMaxWidth);
+        max-height: var(--coverMaxHeight);
         @media (min-width: 480px) {
             align-self: flex-start;
             margin-top: 0;
@@ -146,4 +133,14 @@ article {
 }
 .original-title::before {
     content: 'Original title: ';
+}
+
+#error {
+    border: thick solid var(--colorError);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.hidden {
+    display: none;
 }
